@@ -1,0 +1,13 @@
+# Accesso e gestione account
+
+La pagina **Accedi** consente di effettuare l'autenticazione con indirizzo email e password oppure tramite Google, qualora l'amministratore abbia configurato l'integrazione.
+
+## Registrazione e approvazione
+
+La funzione **Registrati** crea un nuovo account:
+
+- Il primo account registrato e confermato tramite verifica email assume automaticamente il ruolo di **Amministratore** e inizializza la famiglia.
+- Le registrazioni successive vengono poste in stato di attesa finché un amministratore non approva l'accesso dalla sezione di gestione utenti.
+- Anche per gli account creati tramite Google è richiesta la configurazione di una password per l'accesso autonomo.
+
+Dopo il primo accesso, la procedura guidata **Configurazione iniziale** permette di associare o creare la scheda anagrafica della persona collegata all'account.

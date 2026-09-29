@@ -1,0 +1,36 @@
+## Prerequisites and Docker Startup
+
+### Prerequisites
+
+- JDK 25, Maven, and Docker Engine with Compose v2;
+- Node.js 22 and npm to run the frontend outside of Docker.
+
+`mvn -version` must report Java 25. The web module Maven build profile utilizes Node.js 22.18.0.
+
+### Running with Docker Compose
+
+Create the local secret env file from the template if it does not already exist:
+
+```sh
+if [ ! -f docker/src/main/docker/.env ]; then
+  install -m 600 docker/.env.example docker/src/main/docker/.env
+fi
+```
+
+Git ignores `docker/src/main/docker/.env`, and it is not bundled into the image. Build the modules, prepare the runtime context, and start the stack from the repository root:
+
+```sh
+mvn -Pdocker clean package -DskipTests
+```
+
+Open `https://localhost` in your browser. The initial startup generates a local self-signed certificate, which prompts a browser warning until you trust the certificate. In `docker/target/context/certs` you can place existing `fullchain.pem` and `privkey.pem` files. For production deployments, provide a valid domain certificate and set `WEB_BASE_URL` to your public HTTPS origin.
+
+Mailpit is available at `https://localhost/mailpit/`. Core and database services are not published on host ports. The generated Compose file is located in `docker/target/context`.
+
+```sh
+docker compose -p familymanager -f docker/target/context/docker-compose.yml logs -f core web
+docker compose -p familymanager -f docker/target/context/docker-compose.yml down
+```
+
+> [!WARNING]
+> The local development database uses a temporary filesystem: stopping or destroying the container wipes data to ensure test reproducibility.

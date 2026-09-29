@@ -1,0 +1,10 @@
+## Struttura delle guide
+
+La documentazione dell'applicazione è suddivisa nelle seguenti sezioni tematiche:
+
+- [**Panoramica**](overview): introduzione al progetto, principi guida e organizzazione documentale.
+- [**Sviluppo e configurazione**](development): architettura tecnica dei moduli (`core`, `web`, `docker`), avvio rapido con Docker Compose, variabili d'ambiente e setup dell'integrazione Google OAuth.
+- [**Guida utente**](user-guide): guida all'uso per i membri della famiglia (account, approvazione accessi, gestione anagrafica, visualizzazione ad albero o lista, nuclei familiari e impostazioni).
+
+> [!NOTE]
+> La documentazione descrive le funzionalità attualmente operative nel codice sorgente. Le sezioni pianificate per il futuro sono contrassegnate chiaramente nell'interfaccia come non disponibili.

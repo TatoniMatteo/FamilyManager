@@ -1,0 +1,25 @@
+## Settings and Administration
+
+The **Settings** view brings together individual user preferences and family administrative tools.
+
+### General Preferences
+
+- **Appearance**: choose Light, Dark, or System mode to track OS preferences.
+- **Dynamic Accent**: choose your preferred primary palette hue.
+- **Language**: switch the entire application interface between Italian and English.
+
+### User Access and Invitations (Administrators)
+
+Administrators have access to:
+
+- Review, approve, or decline pending account requests.
+- Generate shareable invitation links with custom expiration windows.
+- Monitor active family accounts.
+
+### Danger Zone
+
+The highlighted **Danger Zone** contains irreversible management operations:
+
+- Deleting individual person records that are not attached to an active user account.
+- Permanently deleting your own personal account.
+- Transferring the primary Administrator role to another family member.

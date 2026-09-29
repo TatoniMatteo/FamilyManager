@@ -1,0 +1,82 @@
+spring:
+  application:
+    name: family-manager-core
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:family_manager}
+    username: ${DB_USER:family_manager}
+    password: ${DB_PASSWORD:family_manager}
+    hikari:
+      connection-timeout: 3000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  mail:
+    host: ${MAIL_HOST:localhost}
+    port: ${MAIL_PORT:1025}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: ${MAIL_AUTH:false}
+          starttls:
+            enable: ${MAIL_STARTTLS:false}
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID:familymanager-not-configured}
+            client-secret: ${GOOGLE_CLIENT_SECRET:familymanager-not-configured}
+            scope:
+              - openid
+              - profile
+              - email
+
+server:
+  port: ${SERVER_PORT:8080}
+  forward-headers-strategy: framework
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        same-site: lax
+
+family:
+  system:
+    maintenance: ${MAINTENANCE_MODE:false}
+  auth:
+    web-base-url: ${WEB_BASE_URL:https://localhost}
+    verification-hours: ${EMAIL_VERIFICATION_HOURS:24}
+    google:
+      enabled: ${GOOGLE_OAUTH_ENABLED:false}
+
+logging:
+  level:
+    com.tatonimatteo.familymanager: DEBUG
+
+springdoc:
+  model-and-view-allowed: true
+  writer-with-default-pretty-printer: true
+
+  api-docs:
+    path: /api-docs
+
+  swagger-ui:
+    document-title: Family Manager API
+    path: /swagger
+    operations-sorter: method
+    display-request-duration: true
+    filter: true

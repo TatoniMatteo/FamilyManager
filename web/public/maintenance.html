@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="#f5f6fa" name="theme-color">
+  <title>Manutenzione · FamilyManager</title>
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      background: #f5f6fa;
+      color: #191b20;
+      display: grid;
+      font: 16px/1.6 system-ui, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      padding: 24px;
+      place-items: center;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #dfe1e8;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px #191b2014;
+      padding: 40px;
+      text-align: center;
+      width: min(100%, 520px);
+    }
+
+    .logo {
+      height: 56px;
+      object-fit: contain;
+      width: 84px;
+    }
+
+    .tag {
+      color: #536d9b;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      margin: 22px 0 8px;
+      text-transform: uppercase
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      margin: 0;
+    }
+
+    p {
+      color: #5e606b
+    }
+
+    .button {
+      background: #435b85;
+      border: 0;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      display: inline-block;
+      font: inherit;
+      font-weight: 700;
+      margin-top: 12px;
+      padding: 11px 18px;
+    }
+
+    small {
+      color: #747782;
+      display: block;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<main class="card"><img alt="FamilyManager" class="logo" src="/logo.svg">
+  <p class="tag">FamilyManager</p>
+  <h1>Torniamo tra poco</h1>
+  <p>L’applicazione è temporaneamente in manutenzione. I tuoi dati sono al sicuro.</p>
+  <button class="button" onclick="location.reload()">Controlla di nuovo</button>
+  <small>Grazie per la pazienza.</small></main>
+</body>
+</html>

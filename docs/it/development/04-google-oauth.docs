@@ -1,0 +1,31 @@
+## Configurare Google OAuth
+
+Per abilitare l'autenticazione tramite Google:
+
+1. Nella [Google Cloud Console](https://console.cloud.google.com/) seleziona o crea un progetto.
+2. Apri **Google Auth Platform** e configura brand e audience. In modalità **Testing**, aggiungi il tuo account Google all'elenco dei test user autorizzati. Consulta la [guida Google sull'audience](https://support.google.com/cloud/answer/15549945?hl=it).
+3. In **Clients**, crea una nuova credenziale OAuth client di tipo **Web application**.
+4. In **Authorized redirect URIs** aggiungi l'indirizzo esatto da cui aprirai l'applicazione seguito dall'endpoint callback di Spring Security:
+
+   ```text
+   https://localhost/login/oauth2/code/google
+   https://localhost:5173/login/oauth2/code/google
+   ```
+
+   In produzione sostituisci `localhost` con il dominio HTTPS effettivo del deployment. Schema (`https`), host, porta e percorso devono coincidere esattamente. Per approfondimenti, vedi la [guida Google per applicazioni web server](https://developers.google.com/identity/protocols/oauth2/web-server).
+
+5. Copia il **Client ID** e il **Client Secret** generati. Conserva il segreto in sicurezza. Consulta anche la [guida sulle credenziali](https://support.google.com/cloud/answer/15549257?hl=it).
+6. Inserisci i valori nel file `docker/src/main/docker/.env`:
+
+   ```dotenv
+   GOOGLE_OAUTH_ENABLED=true
+   GOOGLE_CLIENT_ID=tuo-client-id.apps.googleusercontent.com
+   GOOGLE_CLIENT_SECRET=tuo-client-secret
+   WEB_BASE_URL=https://localhost
+   ```
+
+   Se testi l'autenticazione OAuth avviando Vite sulla porta locale 5173, imposta `WEB_BASE_URL=https://localhost:5173`.
+7. Esegui nuovamente la compilazione dello stack: `mvn -Pdocker clean package -DskipTests`.
+
+> [!NOTE]
+> L'integrazione Google richiede esclusivamente i privilegi identificativi di base (`openid`, `profile`, `email`). Non abilita né richiede la sincronizzazione di Gmail, Google Calendar, Keep o Contatti.

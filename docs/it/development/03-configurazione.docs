@@ -1,0 +1,16 @@
+## File di configurazione e variabili
+
+Le impostazioni applicative sono definite in `core/src/main/resources/application.yml`. I segnaposto come `${NOME:default}` consentono di sovrascriverle agevolmente tramite variabili d'ambiente fornite al container o nel file `.env`. Il Compose imposta host e credenziali PostgreSQL, SMTP, URL pubblico, opzioni Google e modalità manutenzione.
+
+> [!IMPORTANT]
+> Le credenziali sensibili e i segreti OAuth vanno sempre inseriti nel file `.env` protetto, mai nei file versionati dal controllo sorgente Git.
+
+### Variabili principali
+
+| Variabile | Scopo | Valore locale tipico |
+| --- | --- | --- |
+| `GOOGLE_OAUTH_ENABLED` | Abilita il pulsante di accesso rapido con Google | `false` finché non configurato |
+| `GOOGLE_CLIENT_ID` | Client ID OAuth di tipo Web application | Ottenuto dalla Google Cloud Console |
+| `GOOGLE_CLIENT_SECRET` | Segreto del client OAuth | Ottenuto dalla Google Cloud Console |
+| `WEB_BASE_URL` | URL HTTPS pubblico per ritorni OAuth e link email | `https://localhost` |
+| `MAINTENANCE_MODE` | Attiva la pagina di manutenzione del sistema | `false` |

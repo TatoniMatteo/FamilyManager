@@ -1,0 +1,10 @@
+## Guide Structure
+
+The application documentation is divided into the following sections:
+
+- [**Overview**](overview): project introduction, core principles, and documentation layout.
+- [**Development and configuration**](development): technical architecture across modules (`core`, `web`, `docker`), local startup with Docker Compose, environment variables, and Google OAuth setup.
+- [**User guide**](user-guide): user guide covering accounts, invitations, directory management, tree and list views, households, and settings.
+
+> [!NOTE]
+> This documentation reflects the features currently implemented in the codebase. Planned future modules are marked as unavailable in the interface.

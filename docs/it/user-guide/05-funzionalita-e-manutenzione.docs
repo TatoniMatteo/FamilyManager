@@ -1,0 +1,14 @@
+## Funzionalità pianificate e stato del sistema
+
+### Moduli futuri
+
+La barra di ricerca superiore e le sezioni Calendario, Pasti, Spesa, Salute, Attività, Compleanni, Eventi, Vacanze, Lavoro/Studio e Note sono pianificate per le versioni successive.
+
+Quando una sezione riporta il messaggio **Modulo non disponibile**, significa che l'interfaccia è pronta ma la logica di servizio sottostante non è stata ancora attivata. L'applicazione non inventa eventi o dati fittizi.
+
+### Stato della rete e manutenzione
+
+Se il server è in fase di aggiornamento o la rete non risponde:
+
+- L'applicazione mostra una pagina di stato dedicata con indicatore visivo chiaro e pulsante per riprovare la connessione.
+- La documentazione del progetto rimane sempre pienamente accessibile all'indirizzo `/documentation` anche quando i servizi backend sono temporaneamente offline.

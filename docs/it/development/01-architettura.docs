@@ -1,0 +1,13 @@
+# Architettura del sistema
+
+Il repository è strutturato come monorepo Maven composto da tre moduli principali:
+
+| Modulo | Responsabilità |
+| --- | --- |
+| `core` | REST API, autenticazione basata su sessioni sicure, logica di dominio, persistenza PostgreSQL e migrazioni Flyway. Realizzato con Java 25 e Spring Boot. |
+| `web` | Client web moderno in React e TypeScript; consuma le API esposte dal modulo core. |
+| `docker` | Assembla il contesto autonomo `docker/target/context` e orchestra l'intero stack con Docker Compose. |
+
+Nginx gestisce la terminazione TLS e serve l'applicazione React, inclusa questa documentazione. Il traffico tra Nginx, il backend Spring Boot, il database PostgreSQL e Mailpit avviene sulla rete privata Docker isolata. Flyway aggiorna lo schema del database all'avvio; modifiche persistenti allo schema richiedono una nuova migrazione numerata sotto `core/src/main/resources/db/migration`.
+
+Il dominio distingue persone, account e nuclei familiari. Le relazioni dirette rappresentano legami genitore-figlio o coppie (coniugi o partner); fratelli, ascendenti e discendenti sono viste derivate generate dal grafo. I nuclei raggruppano le persone che condividono la quotidianità domestica e non costituiscono tenant separati.

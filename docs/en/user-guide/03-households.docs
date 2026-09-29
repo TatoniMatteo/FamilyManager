@@ -1,0 +1,18 @@
+## Households
+
+Households represent cohabitation units or living arrangements within the extended family.
+
+### Creating and Assigning Members
+
+In the **Households** tab:
+
+- Create a household with a unique descriptive name (e.g., *"Main House"*, *"City Apartment"*).
+- Rename existing households.
+- Assign or remove members by selecting family members from the directory.
+
+> [!NOTE]
+> A person can belong to multiple households simultaneously (e.g. shared custody or students living away from home).
+
+### Tree Filters
+
+In the tree view, household filter chips allow instantly spotlighting members of a given household. **Show all** restores the complete tree visibility.

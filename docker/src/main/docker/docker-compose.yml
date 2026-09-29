@@ -1,0 +1,62 @@
+services:
+  postgres:
+    image: postgres:18-alpine
+    container_name: family-manager-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: family_manager
+      POSTGRES_USER: family_manager
+      POSTGRES_PASSWORD: family_manager
+    tmpfs:
+      - /var/lib/postgresql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U family_manager -d family_manager" ]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+
+  mailpit:
+    image: axllent/mailpit:v1.27
+    container_name: family-manager-mailpit
+    restart: unless-stopped
+    command: [ "--webroot", "/mailpit/" ]
+
+  core:
+    build:
+      context: .
+      dockerfile: core/Dockerfile
+    container_name: family-manager-core
+    restart: on-failure
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: family_manager
+      DB_USER: family_manager
+      DB_PASSWORD: family_manager
+      SERVER_PORT: 8080
+      MAIL_HOST: mailpit
+      MAIL_PORT: 1025
+      WEB_BASE_URL: ${WEB_BASE_URL:-https://localhost}
+      GOOGLE_OAUTH_ENABLED: ${GOOGLE_OAUTH_ENABLED:-false}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-familymanager-not-configured}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-familymanager-not-configured}
+      MAINTENANCE_MODE: ${MAINTENANCE_MODE:-false}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mailpit:
+        condition: service_started
+
+  web:
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    container_name: family-manager-web
+    restart: on-failure
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./certs:/etc/nginx/local-certs
+    depends_on:
+      - core

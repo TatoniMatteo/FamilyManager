@@ -1,0 +1,20 @@
+## Famiglia e albero genealogico
+
+La sezione **Famiglia** raccoglie l'elenco delle persone e il grafo relazionale completo dei componenti della famiglia.
+
+### Gestione delle schede anagrafiche
+
+In base ai tuoi permessi puoi:
+
+- Visualizzare le schede anagrafiche in modalità lista tabellare o canvas interattivo.
+- Creare nuovi profili e compilare dati di nascita, contatti e note biografiche.
+- Modificare e aggiornare le informazioni dei componenti.
+
+### Relazioni di parentela
+
+Le relazioni sono stabilite direttamente tra due persone:
+
+- **Genitore - Figlio**: definisce la linea di discendenza generazionale. Fratelli, sorelle, nonni e nipoti vengono calcolati e visualizzati automaticamente dal grafo a partire da questi legami diretti.
+- **Coniuge o Partner**: definisce le coppie e i legami di unione.
+
+Selezionando una persona nell'albero o nella lista se ne aprono i dettagli completi, con l'elenco di tutte le relazioni collegate e la possibilità di aggiungerne di nuove.

@@ -1,0 +1,13 @@
+# System Architecture
+
+The repository is organized as a Maven monorepo with three core modules:
+
+| Module | Responsibility |
+| --- | --- |
+| `core` | REST API, secure session authentication, domain rules, PostgreSQL persistence, and Flyway migrations. Implemented with Java 25 and Spring Boot. |
+| `web` | Modern React and TypeScript frontend client; consumes real core APIs. |
+| `docker` | Prepares the self-contained `docker/target/context` assembly and runs the full stack with Docker Compose. |
+
+Nginx handles TLS termination and serves the React bundle, including this documentation site. Traffic between Nginx, Spring Boot core, PostgreSQL database, and Mailpit stays on the private Docker bridge network. Flyway updates the database schema at application startup; persistent schema changes require a new numbered migration under `core/src/main/resources/db/migration`.
+
+The domain model distinguishes people, accounts, and households. Direct relationships represent parent-child and couple links; siblings, ancestors, and descendants are derived views computed from the graph. Households group people who share everyday living spaces and are not separate tenants.

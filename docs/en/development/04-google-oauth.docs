@@ -1,0 +1,31 @@
+## Configure Google OAuth
+
+To enable Google sign-in:
+
+1. In the [Google Cloud Console](https://console.cloud.google.com/), select or create a project.
+2. Open **Google Auth Platform** and configure branding and audience. While in **Testing** status, add your Google account to authorized test users. See Google's [audience guide](https://support.google.com/cloud/answer/15549945?hl=en).
+3. Under **Clients**, create a new OAuth client credential of type **Web application**.
+4. In **Authorized redirect URIs**, add the exact origin of your application followed by Spring Security's OAuth callback endpoint:
+
+   ```text
+   https://localhost/login/oauth2/code/google
+   https://localhost:5173/login/oauth2/code/google
+   ```
+
+   In production, replace `localhost` with your actual HTTPS deployment domain. Protocol (`https`), host, port, and path must match precisely. Refer to Google's [web server application guide](https://developers.google.com/identity/protocols/oauth2/web-server).
+
+5. Copy the generated **Client ID** and **Client Secret**. Store the secret securely. See also the [credentials guide](https://support.google.com/cloud/answer/15549257?hl=en).
+6. Enter them into `docker/src/main/docker/.env`:
+
+   ```dotenv
+   GOOGLE_OAUTH_ENABLED=true
+   GOOGLE_CLIENT_ID=your-client-id.apps.googleusercontent.com
+   GOOGLE_CLIENT_SECRET=your-client-secret
+   WEB_BASE_URL=https://localhost
+   ```
+
+   When testing OAuth via Vite on port 5173, set `WEB_BASE_URL=https://localhost:5173`.
+7. Rebuild the application stack: `mvn -Pdocker clean package -DskipTests`.
+
+> [!NOTE]
+> Google sign-in only requests standard identity scopes (`openid`, `profile`, `email`). It does not request or require Gmail, Google Calendar, Keep, or Contacts synchronization.

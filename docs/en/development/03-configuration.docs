@@ -1,0 +1,16 @@
+## Configuration Files and Environment Variables
+
+Application settings are declared in `core/src/main/resources/application.yml`. Placeholders like `${NAME:default}` allow easy overriding through environment variables or `.env` files. Docker Compose provides PostgreSQL, SMTP, public URL, Google settings, and maintenance mode defaults.
+
+> [!IMPORTANT]
+> OAuth secrets and sensitive credentials belong in the untracked `.env` file, never committed to version control.
+
+### Primary Variables
+
+| Variable | Purpose | Typical local value |
+| --- | --- | --- |
+| `GOOGLE_OAUTH_ENABLED` | Enables the Google sign-in button | `false` until configured |
+| `GOOGLE_CLIENT_ID` | OAuth Web application client ID | From Google Cloud Console |
+| `GOOGLE_CLIENT_SECRET` | OAuth client secret | From Google Cloud Console |
+| `WEB_BASE_URL` | Public HTTPS URL for redirects and email links | `https://localhost` |
+| `MAINTENANCE_MODE` | Activates the maintenance landing page | `false` |

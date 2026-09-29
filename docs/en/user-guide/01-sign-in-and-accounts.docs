@@ -1,0 +1,13 @@
+# Sign-in and Account Management
+
+The **Sign in** page allows authenticating via email and password, or using Google if enabled by an administrator.
+
+## Registration and Approval
+
+The **Register** action sets up a new account:
+
+- The first registered and email-verified account automatically becomes the family **Administrator** and initializes the family space.
+- Subsequent registrations enter a pending queue until an administrator approves access in the administration dashboard.
+- Accounts created via Google still require configuring an independent password for direct access.
+
+After your first sign-in, the **Initial setup** wizard helps associate or create your individual person record.

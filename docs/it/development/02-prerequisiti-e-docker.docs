@@ -1,0 +1,36 @@
+## Prerequisiti e avvio con Docker
+
+### Prerequisiti
+
+- JDK 25, Maven e Docker Engine con Compose v2;
+- Node.js 22 e npm per avviare ed eseguire il frontend al di fuori di Docker.
+
+`mvn -version` deve indicare Java 25. Il profilo Maven del frontend utilizza Node.js 22.18.0.
+
+### Avvio con Docker Compose
+
+Crea il file segreto locale dal modello, se non esiste già:
+
+```sh
+if [ ! -f docker/src/main/docker/.env ]; then
+  install -m 600 docker/.env.example docker/src/main/docker/.env
+fi
+```
+
+Il file `docker/src/main/docker/.env` è ignorato da Git e non viene copiato nell'immagine. Per compilare i moduli, preparare il contesto e avviare lo stack dalla radice:
+
+```sh
+mvn -Pdocker clean package -DskipTests
+```
+
+Apri `https://localhost` nel browser. Al primo avvio viene generato un certificato autofirmato locale: il browser mostra un avviso finché non installi un certificato attendibile nel sistema operativo o browser. Nella cartella `docker/target/context/certs` puoi fornire `fullchain.pem` e `privkey.pem` per usare un certificato già emesso. In un deploy pubblico usa un certificato valido per il dominio e configura `WEB_BASE_URL` con l'origine HTTPS pubblica.
+
+Mailpit è disponibile via `https://localhost/mailpit/`. I servizi di database e core non sono pubblicati sulle porte dell'host. Il Compose generato è situato in `docker/target/context`.
+
+```sh
+docker compose -p familymanager -f docker/target/context/docker-compose.yml logs -f core web
+docker compose -p familymanager -f docker/target/context/docker-compose.yml down
+```
+
+> [!WARNING]
+> Il database locale usa un filesystem temporaneo nel container di sviluppo: fermare o ricreare il container elimina i dati per facilitare i test di migrazione riproducibili.

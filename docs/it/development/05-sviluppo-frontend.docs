@@ -1,0 +1,13 @@
+## Sviluppo frontend
+
+Per sviluppare il modulo web con live-reload rapido al di fuori del container Docker:
+
+```sh
+cd web
+npm ci
+npm run dev
+```
+
+Anche il server Vite locale utilizza connessioni HTTPS protette con un certificato autofirmato locale per simulare l'ambiente di produzione. Apri `https://localhost:5173`.
+
+Vite è preconfigurato per effettuare il proxy trasparente delle chiamate API verso il backend Spring Boot (`https://localhost:8443` o `https://localhost`), preservando cookie di sessione e intestazioni CSRF.

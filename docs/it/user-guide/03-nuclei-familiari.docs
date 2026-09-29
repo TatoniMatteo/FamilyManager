@@ -1,0 +1,18 @@
+## Nuclei familiari
+
+I nuclei familiari rappresentano le unità domestiche o le convivenze effettive all'interno della famiglia allargata.
+
+### Creazione e membri
+
+Nella scheda **Nuclei familiari** puoi:
+
+- Creare un nuovo nucleo assegnandogli un nome univoco (es. *"Casa Roma"*, *"Famiglia Rossi"*).
+- Rinominare un nucleo esistente.
+- Assegnare o rimuovere membri selezionando le persone dell'anagrafica.
+
+> [!NOTE]
+> Una persona può appartenere contemporaneamente a più nuclei familiari (ad esempio nel caso di figli di genitori separati o studenti fuori sede).
+
+### Filtri sull'albero genealogico
+
+Nella vista ad albero puoi attivare i filtri dei nuclei per evidenziare immediatamente i membri che convivono nello stesso nucleo. Il comando **Mostra tutti** ripristina la visualizzazione completa di tutti i componenti.

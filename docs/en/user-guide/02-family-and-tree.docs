@@ -1,0 +1,20 @@
+## Family Directory and Tree
+
+The **Family** section contains the directory of individuals and the interactive family graph.
+
+### Managing Person Records
+
+Based on your assigned permissions:
+
+- View people in either an organized list view or interactive graph canvas.
+- Add new member profiles, including birth details, contact information, and biographical notes.
+- Edit and update details as family information evolves.
+
+### Relationships
+
+Relationships connect two people directly:
+
+- **Parent - Child**: establishes generational lineage. Siblings, grandparents, and grandchildren are computed dynamically from these connections.
+- **Spouse or Partner**: defines couple partnerships.
+
+Selecting any person in either view opens their full details drawer, listing associated relationships with options to manage or add new ones.

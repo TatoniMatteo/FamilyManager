@@ -1,0 +1,14 @@
+## Planned Features and System Status
+
+### Roadmap Features
+
+The global search input, along with Calendar, Meals, Groceries, Health, Activities, Birthdays, Events, Vacations, Work/Study, and Notes sections, are planned for upcoming releases.
+
+Whenever a section displays the **Module unavailable** placeholder, it indicates the interface is prepared while backend services await implementation. The application never generates fabricated data.
+
+### System Availability and Maintenance
+
+If the server undergoes maintenance or network connectivity drops:
+
+- The app displays an intuitive status page with real-time feedback and a reconnect retry button.
+- Application documentation at `/documentation` remains completely accessible even while backend services are offline.

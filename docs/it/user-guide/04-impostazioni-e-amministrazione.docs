@@ -1,0 +1,25 @@
+## Impostazioni e amministrazione
+
+La pagina **Impostazioni** raccoglie le preferenze personali e gli strumenti di amministrazione del sistema.
+
+### Preferenze generali
+
+- **Aspetto visivo**: seleziona il tema preferito tra Chiaro, Scuro o Automatico (in base alle preferenze del sistema operativo).
+- **Colore dinamico**: scegli la tonalità primaria dell'accento cromatico.
+- **Lingua**: seleziona l'interfaccia in Italiano o English.
+
+### Gestione accessi e inviti (Amministratori)
+
+Gli amministratori possono:
+
+- Esaminare, approvare o rifiutare le richieste di accesso pendenti.
+- Generare link di invito condivisibili con scadenza temporale configurabile.
+- Monitorare gli account attivi della famiglia.
+
+### Danger Zone
+
+L'area rossa **Danger Zone** in fondo alla pagina contiene azioni critiche e irreversibili:
+
+- Eliminazione di una scheda anagrafica non associata ad un account utente attivo.
+- Eliminazione definitiva del proprio account personale.
+- Trasferimento del ruolo di Amministratore ad un altro membro della famiglia.

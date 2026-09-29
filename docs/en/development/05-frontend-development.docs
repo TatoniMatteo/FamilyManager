@@ -1,0 +1,13 @@
+## Frontend Development
+
+To run the web module locally with instant hot-module replacement outside Docker:
+
+```sh
+cd web
+npm ci
+npm run dev
+```
+
+The local Vite dev server also runs with HTTPS using a generated self-signed certificate. Open `https://localhost:5173`.
+
+Vite is preconfigured to reverse proxy API requests to the Spring Boot core (`https://localhost:8443` or `https://localhost`), properly passing session cookies and CSRF protection headers.
